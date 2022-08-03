@@ -82,14 +82,17 @@ do
   -- Actions
   map("n", "<C-p>", ts.find_files)
   map("n", "<F1>", ts.help_tags)
-  map("n", "<M-S>", ts.builtin)
   map("n", "gb", ts.buffers)
+  map("n", prefix .. "<CR>", ts.builtin)
   map("n", prefix .. "a", function() ts.find_files({ hidden = true }) end)
   map("n", prefix .. "g", ts.live_grep)
   map("n", prefix .. "o", ts.oldfiles)
   map("n", prefix .. "r", ts.resume)
   map("n", prefix .. "s", ts.git_status)
-  map("n", prefix, ts.builtin)
+
+  -- Shortcuts
+  map("n", prefix, prefix .. "<CR>", { remap = true })
+  map("n", prefix .. prefix, prefix .. "<CR>", { remap = true })
 end
 
 -- To get extensions loaded and working with telescope, you need to call
