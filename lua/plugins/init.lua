@@ -59,6 +59,17 @@ return require("packer").startup(function(use)
         require("plugins.formatter")
       end
     }
+    -- Smart and powerful comments
+    use {
+      "numToStr/Comment.nvim",
+      config = function()
+        require("Comment").setup {
+          mappings = {
+            extended = true,
+          },
+        }
+      end
+    }
   end
   -- }}}
 
@@ -106,8 +117,6 @@ return require("packer").startup(function(use)
     }
     -- Searches, substitutions, and abbreviations
     use "tpope/vim-abolish"
-    -- Comment stuff out
-    use "tpope/vim-commentary"
     -- Unix file manipulation
     use "tpope/vim-eunuch"
     -- Repeat plugin maps
