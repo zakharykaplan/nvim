@@ -50,18 +50,25 @@ Hydra {
     on_enter = function()
       vim.cmd("silent! %foldopen!")
       vim.bo.modifiable = false
-      vim.b.gitsigns = {
-        signs = gitsigns.config.signcolumn,
-        linehl = gitsigns.config.linehl,
+      vim.b.hydra = {
+        vim = {
+          timeoutlen = vim.o.timeoutlen,
+        },
+        gitsigns = {
+          signs = gitsigns.config.signcolumn,
+          linehl = gitsigns.config.linehl,
+        }
       }
+      vim.o.timeoutlen = 50
       gitsigns.toggle_signs(true)
       gitsigns.toggle_linehl(true)
     end,
     on_exit = function()
+      vim.opt.timeoutlen = vim.b.hydra.vim.timeoutlen
       gitsigns.toggle_deleted(false)
-      gitsigns.toggle_signs(vim.b.gitsigns.signs)
-      gitsigns.toggle_linehl(vim.b.gitsigns.linehl)
-      vim.b.gitsigns = nil
+      gitsigns.toggle_signs(vim.b.hydra.gitsigns.signs)
+      gitsigns.toggle_linehl(vim.b.hydra.gitsigns.linehl)
+      vim.b.hydra = nil
     end,
   },
   mode = { "n", "x" },
