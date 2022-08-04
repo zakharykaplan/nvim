@@ -108,6 +108,13 @@ return require("packer").startup(function(use)
 
   -- Extensions {{{
   do
+    -- Enhanced increment/decrement
+    use {
+      "monaqa/dial.nvim",
+      config = function()
+        require("plugins.dial")
+      end,
+    }
     -- Modal multiple cursors
     use {
       "mg979/vim-visual-multi",
@@ -123,8 +130,6 @@ return require("packer").startup(function(use)
     use "tpope/vim-repeat"
     -- Heuristically set buffer options
     use "tpope/vim-sleuth"
-    -- Increment dates, times, and more
-    use "tpope/vim-speeddating"
     -- Handy bracket mappings
     use "tpope/vim-unimpaired"
     -- Additional text objects
@@ -238,8 +243,6 @@ return require("packer").startup(function(use)
 
   -- Text {{{
   do
-    -- Switch text segments
-    use "AndrewRadev/switch.vim"
     -- Edit sandwiched textobjects
     use "machakann/vim-sandwich"
     -- Super powerful autopairs
