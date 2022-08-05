@@ -13,7 +13,6 @@ require("gitsigns").setup {
     local gs = package.loaded.gitsigns
 
     -- Set up keymaps
-    local prefix = "<Leader>"
     local function map(mode, lhs, rhs, opts)
       opts = opts or {}
       opts.buffer = bufnr
@@ -33,17 +32,17 @@ require("gitsigns").setup {
     end, { expr = true })
 
     -- Actions
-    map({ "n", "v" }, prefix .. "hs", gs.stage_hunk)
-    map({ "n", "v" }, prefix .. "hr", gs.reset_hunk)
-    map("n", prefix .. "hS", gs.stage_buffer)
-    map("n", prefix .. "hu", gs.undo_stage_hunk)
-    map("n", prefix .. "hR", gs.reset_buffer)
-    map("n", prefix .. "hp", gs.preview_hunk)
-    map("n", prefix .. "hb", function() gs.blame_line { full = true } end)
-    map("n", prefix .. "tb", gs.toggle_current_line_blame)
-    map("n", prefix .. "hd", gs.diffthis)
-    map("n", prefix .. "hD", function() gs.diffthis("~") end)
-    map("n", prefix .. "td", gs.toggle_deleted)
+    map({ "n", "v" }, "<Leader>hs", gs.stage_hunk)
+    map({ "n", "v" }, "<Leader>hr", gs.reset_hunk)
+    map("n", "<Leader>hS", gs.stage_buffer)
+    map("n", "<Leader>hu", gs.undo_stage_hunk)
+    map("n", "<Leader>hR", gs.reset_buffer)
+    map("n", "<Leader>hp", gs.preview_hunk)
+    map("n", "<Leader>hb", function() gs.blame_line { full = true } end)
+    map("n", "<Leader>tb", gs.toggle_current_line_blame)
+    map("n", "<Leader>hd", gs.diffthis)
+    map("n", "<Leader>hD", function() gs.diffthis("~") end)
+    map("n", "<Leader>td", gs.toggle_deleted)
 
     -- Text object
     map({ "o", "x" }, "ih", gs.select_hunk)
