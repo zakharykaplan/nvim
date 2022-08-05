@@ -70,30 +70,25 @@ require("telescope").setup {
 
 -- Configure mappings
 do
-  local ts = require("telescope.builtin")
-
   -- Set up keymaps
   local function map(mode, lhs, rhs, opts)
     opts = opts or { noremap = true, silent = true }
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 
-  -- Actions
-  map("n", "<C-p>", ts.find_files)
+  -- Builtins
+  local ts = require("telescope.builtin")
   map("n", "<F1>", ts.help_tags)
-  map("n", "<M-s>a", function() ts.find_files({ hidden = true }) end)
-  map("n", "<M-s>g", ts.live_grep)
-  map("n", "<M-s>o", ts.oldfiles)
-  map("n", "<M-s>r", ts.resume)
-  map("n", "<M-s>s", ts.git_status)
-  map("n", "gb", ts.buffers)
-
-  -- Dashboard
+  map("n", "<M-b>", ts.buffers)
+  map("n", "<M-f>", ts.find_files)
+  map("n", "<M-F>", function() ts.find_files({ hidden = true }) end)
+  map("n", "<M-C-f>", ts.oldfiles)
+  map("n", "<M-g>", ts.live_grep)
   map("n", "<M-s>", ts.builtin)
-  map("n", "<M-s><CR>", ts.builtin)
-  map("n", "<M-s><M-s>", ts.builtin)
-end
+  map("n", "<M-S>", ts.resume)
 
--- To get extensions loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
-require("telescope").load_extension("fzf")
+  -- Extensions
+  local ext = require("telescope").extensions
+  map("n", "<M-p>", ext.project.project)
+  map("n", "<M-P>", ext.packer.packer)
+end
