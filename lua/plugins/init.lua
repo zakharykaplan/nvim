@@ -2,6 +2,7 @@
 -- Author:      Zakhary Kaplan <https://zakhary.dev>
 -- Created:     05 Aug 2021
 -- SPDX-License-Identifier: MIT
+-- Vim:         set fdl=0 fdm=marker:
 
 -- This file can be loaded by calling `lua require("plugins")` from your init.lua
 -- Bootstrap {{{
@@ -397,5 +398,3 @@ return require("packer").startup(function(use)
     require("packer").sync()
   end
 end)
-
--- vim:fdl=0:fdm=marker:

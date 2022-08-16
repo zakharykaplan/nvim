@@ -2,6 +2,7 @@
 -- Author:      Zakhary Kaplan <https://zakhary.dev>
 -- Created:     12 Sep 2020
 -- SPDX-License-Identifier: MIT
+-- Vim:         set fdl=0 fdm=marker:
 
 -- Set up autocmds
 local function augroup(name, setup)
@@ -76,5 +77,3 @@ augroup("Vimrc", function(autocmd)
   end)
 end)
 -- }}}
-
--- vim:fdl=0:fdm=marker:

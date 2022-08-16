@@ -2,6 +2,7 @@
 -- Author:      Zakhary Kaplan <https://zakhary.dev>
 -- Created:     05 Jun 2019
 -- SPDX-License-Identifier: MIT
+-- Vim:         set fdl=0 fdm=marker:
 
 ----------------
 --  Options   --
@@ -76,5 +77,3 @@ vim.opt.wrap          = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 -- }}}
-
--- vim:fdl=0:fdm=marker:
