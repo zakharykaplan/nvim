@@ -6,7 +6,6 @@
 require("bufferline").setup {
   options = {
     mode = "tabs",
-    numbers = "buffer_id",
     diagnostics = "nvim_lsp",
     offsets = {
       {
