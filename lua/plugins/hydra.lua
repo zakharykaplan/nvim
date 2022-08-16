@@ -7,10 +7,6 @@ local Hydra = require("hydra")
 
 local hint
 
-local function cmd(command)
-  return table.concat({ "<Cmd>", command, "<CR>" })
-end
-
 -- Side scroll
 Hydra {
   name = "Side scroll",
@@ -262,10 +258,10 @@ Hydra {
     { "W", "<C-w>W", { exit = true, desc = false } },
 
     -- Move window
-    { "H", cmd "<C-w>H" },
-    { "J", cmd "<C-w>J" },
-    { "K", cmd "<C-w>K" },
-    { "L", cmd "<C-w>L" },
+    { "H", "<C-w>H" },
+    { "J", "<C-w>J" },
+    { "K", "<C-w>K" },
+    { "L", "<C-w>L" },
 
     -- Resize
     { "+", "<C-w>+" },
