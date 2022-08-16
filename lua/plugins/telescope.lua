@@ -31,12 +31,6 @@ require("telescope").setup {
     prompt_prefix = " ",
     -- The character(s) that will be shown in front of the current selection.
     selection_caret = "» ",
-    -- Prefix in front of each result entry. Current selection not included.
-    entry_prefix = "  ",
-    -- Symbol to add in front of a multi-selected result entry.
-    multi_icon = "+",
-    -- Boolean defining if borders are added to Telescope windows.
-    border = true,
     -- Your mappings to override telescope's default mappings.
     mappings = {
       i = {
@@ -55,9 +49,6 @@ require("telescope").setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
-    find_files = {
-      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" }
-    },
   },
   extensions = {
     -- Your extension configuration goes here:
