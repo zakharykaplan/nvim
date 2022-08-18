@@ -53,13 +53,6 @@ return require("packer").startup(function(use)
       end,
       requires = "honza/vim-snippets",
     }
-    -- Format runner
-    use {
-      "mhartington/formatter.nvim",
-      config = function()
-        require("plugins.formatter")
-      end
-    }
     -- Smart and powerful comments
     use {
       "numToStr/Comment.nvim",
@@ -213,6 +206,14 @@ return require("packer").startup(function(use)
           }
         }
       end,
+    }
+    -- Use Neovim as a language server
+    use {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require("plugins.null-ls")
+      end,
+      requires = "nvim-lua/plenary.nvim",
     }
     -- Lsp common configurations
     use {
