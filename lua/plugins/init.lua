@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
   end
   -- }}}
 
-  -- Code: {{{
+  -- Code {{{
   do
     -- Snippet engine
     use {
@@ -194,7 +194,7 @@ return require("packer").startup(function(use)
         local trouble = require("trouble")
         -- Call setup
         trouble.setup {}
-        -- Toggle with "<Leader>t"
+        -- Toggle trouble
         vim.keymap.set("n", "<Space>d", trouble.toggle, {
           noremap = true,
           silent = true
