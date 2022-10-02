@@ -188,17 +188,7 @@ return require("packer").startup(function(use)
     -- Language {{{
     do
       use {
-        { "rust-lang/rust.vim" },
-        {
-          "simrat39/rust-tools.nvim",
-          config = function()
-            require("rust-tools").setup {}
-          end,
-          requires = {
-            "mfussenegger/nvim-dap",
-            "nvim-lua/plenary.nvim",
-          },
-        },
+        "rust-lang/rust.vim",
         ft = "rust",
       }
     end
