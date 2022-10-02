@@ -60,15 +60,16 @@ augroup("Vimrc", function(autocmd)
 
   -- Replace tabs with spaces on write
   autocmd("BufWritePre", nil, function()
-    vim.cmd [[retab]]
+    vim.cmd.retab()
   end)
 
   -- When a terminal job is starting, configure the terminal buffer
   autocmd("TermOpen", nil, function()
     -- Disable line numbers in terminal buffers
-    vim.wo.number = false
+    vim.wo.number         = false
+    vim.wo.relativenumber = false
     -- Enter Terminal-mode automatically
-    vim.cmd [[startinsert]]
+    vim.cmd.startinsert()
   end)
 
   -- Highlight text on yank

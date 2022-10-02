@@ -80,9 +80,7 @@ do
   -- ... after the language server attaches to the current buffer
   on_attach = function(client, bufnr)
     -- Highlight symbol under cursor
-    -- TODO: update to Neovim v0.8
-    -- if client.server_capabilities.documentHighlightProvider then
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
       vim.cmd [[
         hi! LspReferenceRead cterm=bold
         hi! LspReferenceText cterm=bold
@@ -106,9 +104,6 @@ do
         callback = vim.lsp.buf.clear_references,
       })
     end
-
-    -- Enable completion triggered by <C-x><C-o>
-    vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
 
     -- Set up keymaps
     local function map(mode, lhs, rhs, opts)
@@ -137,10 +132,10 @@ do
     map("n", "gr", vim.lsp.buf.references)
 
     -- Set some key bindings conditional on server capabilities
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.document_formatting then
       map("n", "<Space>f", vim.lsp.buf.formatting)
     end
-    if client.resolved_capabilities.document_range_formatting then
+    if client.server_capabilities.document_range_formatting then
       map("x", "<Space>f", vim.lsp.buf.range_formatting)
     end
   end

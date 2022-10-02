@@ -18,7 +18,7 @@ do
       "https://github.com/wbthomason/packer.nvim",
       path
     }
-    vim.cmd [[packadd packer.nvim]]
+    vim.cmd.packadd("packer.nvim")
   end
 
   -- Automatically run `:PackerCompile` whenever this file is updated

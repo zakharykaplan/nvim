@@ -62,15 +62,16 @@ vim.opt.listchars:append {
   extends  = "›",
   precedes = "‹",
 }
-vim.opt.number        = true
-vim.opt.pumblend      = 10
-vim.opt.scrolloff     =  5
-vim.opt.signcolumn    =  "yes:1"
-vim.opt.showbreak     = "↪ "
-vim.opt.showmode      = false
-vim.opt.sidescrolloff =  5
-vim.opt.winblend      = 10
-vim.opt.wrap          = false
+vim.opt.number         = true
+vim.opt.relativenumber = true
+vim.opt.pumblend       = 10
+vim.opt.scrolloff      =  5
+vim.opt.signcolumn     =  "yes:1"
+vim.opt.showbreak      = "↪ "
+vim.opt.showmode       = false
+vim.opt.sidescrolloff  =  5
+vim.opt.winblend       = 10
+vim.opt.wrap           = false
 -- }}}
 
 -- Window {{{
