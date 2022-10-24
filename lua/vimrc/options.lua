@@ -34,10 +34,6 @@ vim.opt.shiftwidth  =  4
 vim.opt.softtabstop = -1
 -- }}}
 
--- Input {{{
-vim.opt.mouse = "ar"
--- }}}
-
 -- Path {{{
 vim.opt.path:append("**")
 -- }}}
