@@ -341,6 +341,13 @@ return require("packer").startup(function(use)
       },
       requires = "kyazdani42/nvim-web-devicons",
     }
+    -- Dim inactive windows
+    use {
+      "levouh/tint.nvim",
+      config = function()
+        require("tint").setup {}
+      end,
+    }
     -- Show vertical lines for indent
     use {
       "lukas-reineke/indent-blankline.nvim",
