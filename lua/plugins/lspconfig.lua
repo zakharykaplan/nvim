@@ -86,20 +86,14 @@ do
         hi! LspReferenceText cterm=bold
         hi! LspReferenceWrite cterm=bold
       ]]
-      vim.api.nvim_create_augroup("lsp_document_highlight", {
-        clear = false,
-      })
-      vim.api.nvim_clear_autocmds({
-        buffer = bufnr,
-        group = "lsp_document_highlight",
-      })
+      local group = vim.api.nvim_create_augroup("LspDocumentHighlight", {})
       vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        group = "lsp_document_highlight",
+        group = group,
         buffer = bufnr,
         callback = vim.lsp.buf.document_highlight,
       })
       vim.api.nvim_create_autocmd("CursorMoved", {
-        group = "lsp_document_highlight",
+        group = group,
         buffer = bufnr,
         callback = vim.lsp.buf.clear_references,
       })
