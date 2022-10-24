@@ -45,7 +45,12 @@ return require("packer").startup(function(use)
   -- Editing {{{
   do
     -- Edit sandwiched textobjects
-    use "machakann/vim-sandwich"
+    use {
+      "kylechui/nvim-surround",
+      config = function()
+        require("nvim-surround").setup {}
+      end
+    }
     -- Smart and powerful comments
     use {
       "numToStr/Comment.nvim",
