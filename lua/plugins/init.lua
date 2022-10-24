@@ -50,11 +50,7 @@ return require("packer").startup(function(use)
     use {
       "numToStr/Comment.nvim",
       config = function()
-        require("Comment").setup {
-          mappings = {
-            extended = true,
-          },
-        }
+        require("Comment").setup {}
       end
     }
     -- Super powerful autopairs
