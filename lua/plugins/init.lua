@@ -90,13 +90,6 @@ return require("packer").startup(function(use)
   do
     -- Neovim {{{
     do
-      -- Make on-screen jumps quicker
-      use {
-        "ggandor/leap.nvim",
-        config = function()
-          require('leap').add_default_mappings()
-        end,
-      }
       -- Enhanced increment/decrement
       use {
         "monaqa/dial.nvim",
