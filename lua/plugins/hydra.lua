@@ -23,7 +23,6 @@ Hydra {
 -- Git submode
 local gitsigns  = require("gitsigns")
 gitsigns.config = require("gitsigns.config").config
-local neogit    = require("neogit")
 
 hint = [[
 ^  ^ ^              ^ ^                    ^ ^                 ^ ^                   ^
@@ -31,7 +30,6 @@ hint = [[
 ^  _K_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full  ^
 ^  ^ ^              _S_: stage buffer      ^ ^                 _/_: show base file   ^
 ^  ^ ^              ^ ^                    ^ ^                 ^ ^                   ^
-^  ^ ^              ^ ^ _<Enter>_: Neogit  ^ ^       _q_: exit ^ ^                   ^
 ]]
 
 Hydra {
@@ -108,9 +106,6 @@ Hydra {
     { -- Show the base of the file
       "/", gitsigns.show,
       { exit = true, desc = "show base file" }
-    },
-    { "<Enter>", neogit.open,
-      { exit = true, desc = "Neogit" }
     },
     { "q", nil, { exit = true, nowait = true, desc = "exit" } },
     { "<Esc>", nil, { exit = true, nowait = true, desc = false } },

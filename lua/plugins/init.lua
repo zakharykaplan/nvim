@@ -131,21 +131,6 @@ return require("packer").startup(function(use)
         end,
         requires = "nvim-lua/plenary.nvim",
       }
-      -- Magit for Neovim
-      use {
-        "TimUntersberger/neogit",
-        config = function()
-          require("neogit").setup {
-            integrations = {
-              diffview = true,
-            },
-          }
-        end,
-        requires = {
-          "nvim-lua/plenary.nvim",
-          "sindrets/diffview.nvim",
-        },
-      }
     end
     -- }}}
   end
