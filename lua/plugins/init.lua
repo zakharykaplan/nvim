@@ -368,18 +368,6 @@ return require("packer").startup(function(use)
           end,
           run = "make",
         },
-        {
-          "nvim-telescope/telescope-packer.nvim",
-          config = function()
-            require("telescope").load_extension("packer")
-          end,
-        },
-        {
-          "nvim-telescope/telescope-project.nvim",
-          config = function()
-            require("telescope").load_extension("project")
-          end,
-        },
       },
     }
     -- Improve the default vim.ui interfaces

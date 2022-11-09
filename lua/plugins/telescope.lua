@@ -77,9 +77,4 @@ do
   map("n", "<M-g>", ts.live_grep)
   map("n", "<M-s>", ts.builtin)
   map("n", "<M-S>", ts.resume)
-
-  -- Extensions
-  local ext = require("telescope").extensions
-  map("n", "<M-p>", ext.project.project)
-  map("n", "<M-P>", ext.packer.packer)
 end
