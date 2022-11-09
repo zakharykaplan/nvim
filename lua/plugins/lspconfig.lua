@@ -157,7 +157,7 @@ mason.setup_handlers {
     lspconfig[server].setup {}
   end,
   -- Next, you can provide targeted overrides for specific servers.
-  ["sumneko_lua"] = function()
+  ["sumneko_lua"] = function(_)
     lspconfig.sumneko_lua.setup {
       settings = {
         Lua = {
@@ -168,9 +168,11 @@ mason.setup_handlers {
           workspace = {
             -- Make the server aware of Neovim runtime files
             library = vim.api.nvim_get_runtime_file("", true),
+            -- Whether third party libraries can be detected and applied
+            checkThirdParty = false,
           },
         },
-      }
+      },
     }
   end,
 }
