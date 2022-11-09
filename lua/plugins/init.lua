@@ -251,13 +251,15 @@ return require("packer").startup(function(use)
           require("plugins.nvim-treesitter")
         end,
         run = ":TSUpdate",
+        requires = {
+          -- Show code context
+          "nvim-treesitter/nvim-treesitter-context",
+          -- Syntax aware text-objects
+          "nvim-treesitter/nvim-treesitter-textobjects",
+          -- Auto-close and auto-rename markup tags
+          "windwp/nvim-ts-autotag",
+        }
       }
-      -- Show code context
-      use "nvim-treesitter/nvim-treesitter-context"
-      -- Syntax aware text-objects
-      use "nvim-treesitter/nvim-treesitter-textobjects"
-      -- Auto-close and auto-rename markup tags
-      use "windwp/nvim-ts-autotag"
     end
     -- }}}
   end
@@ -311,7 +313,7 @@ return require("packer").startup(function(use)
           open_fold_hl_timeout = 0,
         }
       end,
-      requires = "kevinhwang91/promise-async"
+      requires = "kevinhwang91/promise-async",
     }
     -- File explorer written in lua
     use {
@@ -361,10 +363,10 @@ return require("packer").startup(function(use)
         "nvim-lua/plenary.nvim",
         {
           "nvim-telescope/telescope-fzf-native.nvim",
-          run = "make",
           config = function()
             require("telescope").load_extension("fzf")
           end,
+          run = "make",
         },
         {
           "nvim-telescope/telescope-packer.nvim",
