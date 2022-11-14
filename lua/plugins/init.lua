@@ -164,8 +164,6 @@ return require("packer").startup(function(use)
           -- Filesystem
           "hrsh7th/cmp-path",
           "lukas-reineke/cmp-rg",
-          -- Extensions
-          "hrsh7th/cmp-cmdline",
         },
       }
     end

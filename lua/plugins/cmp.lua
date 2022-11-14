@@ -96,8 +96,6 @@ cmp.setup {
         -- Filesystem
         path        = "ﱮ ",
         rg          = " ",
-        -- Extensions
-        cmdline     = " ",
       })[entry.source.name] or " "
 
       item.kind = symbol
@@ -156,20 +154,3 @@ cmp.setup {
     ghost_text = true,
   }
 }
-
--- Completions for `/` search based on current buffer
-cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources {
-    { name = "nvim_lsp_document_symbol" },
-    { name = "buffer" },
-  }
-})
-
--- Completions for command mode
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources {
-    { name = "cmdline" },
-  }
-})
