@@ -59,7 +59,6 @@ vim.opt.listchars:append {
   precedes = "‹",
 }
 vim.opt.number         = true
-vim.opt.relativenumber = true
 vim.opt.pumblend       = 10
 vim.opt.scrolloff      =  5
 vim.opt.signcolumn     =  "yes:1"
