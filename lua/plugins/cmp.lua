@@ -82,20 +82,17 @@ cmp.setup {
       local source = ({
         -- Vim-builtin
         spell       = "暈",
-        buffer      = " ",
         calc        = " ",
         omni        = " ",
         -- Neovim-builtin
         nvim_lua    = " ",
-        treesitter  = "פּ ",
         -- Snippets
         snippy      = " ",
         -- Language Server Protocol
         nvim_lsp    = "ﮒ ",
-        nvim_lsp_document_symbol = "ﮒ ",
+        nvim_lsp_signature_help  = "ﮒ ",
         -- Filesystem
         path        = "ﱮ ",
-        rg          = " ",
       })[entry.source.name] or " "
 
       item.kind = symbol
@@ -108,10 +105,6 @@ cmp.setup {
   -- Array of the source configuration to use
   -- (The order will be used to the completion menu's sort order)
   sources = cmp.config.sources(
-    -- Snippets
-    {
-      { name = "snippy" },
-    },
     -- Language Server Protocol
     {
       { name = "nvim_lsp" },
@@ -120,19 +113,20 @@ cmp.setup {
     -- Neovim-builtin
     {
       { name = "nvim_lua" },
-      { name = "treesitter" },
+    },
+    -- Snippets
+    {
+      { name = "snippy" },
     },
     -- Vim-builtin
     {
       { name = "spell" },
-      { name = "buffer" },
       { name = "calc" },
       { name = "omni" },
     },
     -- Filesystem
     {
       { name = "path" },
-      { name = "rg" },
     },
     -- Extra
     {}

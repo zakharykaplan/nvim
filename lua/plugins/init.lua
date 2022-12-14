@@ -154,21 +154,17 @@ return require("packer").startup(function(use)
         requires = {
           -- Vim-builtin
           "f3fora/cmp-spell",
-          "hrsh7th/cmp-buffer",
           "hrsh7th/cmp-calc",
           "hrsh7th/cmp-omni",
           -- Neovim-builtin
           "hrsh7th/cmp-nvim-lua",
-          "ray-x/cmp-treesitter",
           -- Snippets
           "dcampos/cmp-snippy",
           -- Language Server Protocol
           "hrsh7th/cmp-nvim-lsp",
-          "hrsh7th/cmp-nvim-lsp-document-symbol",
           "hrsh7th/cmp-nvim-lsp-signature-help",
           -- Filesystem
           "hrsh7th/cmp-path",
-          "lukas-reineke/cmp-rg",
         },
       }
     end
