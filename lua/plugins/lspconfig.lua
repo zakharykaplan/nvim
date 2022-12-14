@@ -69,7 +69,9 @@ do
   end
 
   -- Show line diagnostics in virtual text
-  vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.show()]]
+  vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+    callback = function() vim.diagnostic.show() end,
+  })
 
   -- Add additional capabilities supported by nvim-cmp
   capabilities = vim.lsp.protocol.make_client_capabilities()
