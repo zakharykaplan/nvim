@@ -174,7 +174,25 @@ mason.setup_handlers {
   function(server) -- default handler (optional)
     lspconfig[server].setup {}
   end,
-  -- Next, you can provide targeted overrides for specific servers.
+  -- Next, you can provide a dedicated handler for specific servers.
+  -- For example, a handler override for the `rust_analyzer`:
+  ["rust_analyzer"] = function(_)
+    lspconfig.rust_analyzer.setup {
+      settings = {
+        ["rust-analyzer"] = {
+          assist = {
+            emitMistUse = true,
+          },
+          imports = {
+            granularity = {
+              group = "module",
+            },
+            prefix = "self",
+          },
+        }
+      },
+    }
+  end,
   ["sumneko_lua"] = function(_)
     lspconfig.sumneko_lua.setup {
       settings = {
