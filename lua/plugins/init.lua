@@ -256,8 +256,6 @@ return require("packer").startup(function(use)
           "nvim-treesitter/nvim-treesitter-context",
           -- Syntax aware text-objects
           "nvim-treesitter/nvim-treesitter-textobjects",
-          -- Auto-close and auto-rename markup tags
-          "windwp/nvim-ts-autotag",
         }
       }
     end
