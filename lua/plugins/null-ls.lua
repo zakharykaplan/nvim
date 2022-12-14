@@ -7,7 +7,8 @@ local null = require("null-ls")
 
 null.setup {
   sources = {
-    null.builtins.formatting.isort,
     null.builtins.formatting.black,
+    null.builtins.formatting.isort,
+    null.builtins.formatting.rustfmt,
   },
 }
