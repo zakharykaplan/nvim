@@ -59,9 +59,9 @@ end
 -- Increment
 map("n", "<C-a>", dial.inc_normal())
 map("v", "<C-a>", dial.inc_visual())
-map("v", "<C-a>", dial.inc_gvisual())
+map("v", "g<C-a>", dial.inc_gvisual())
 
 -- Decrement
 map("n", "<C-x>", dial.dec_normal())
 map("v", "<C-x>", dial.dec_visual())
-map("v", "<C-x>", dial.dec_gvisual())
+map("v", "g<C-x>", dial.dec_gvisual())
