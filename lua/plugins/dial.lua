@@ -51,17 +51,17 @@ config.augends:register_group {
 }
 
 -- Set up keymaps
-local function map(mode, lhs, rhs, opts)
-  opts = opts or { noremap = true, silent = true }
+local function map(mode, lhs, rhs, opts, hint)
+  opts = opts or { noremap = true, silent = true, desc = hint }
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 -- Increment
-map("n", "<C-a>", dial.inc_normal())
-map("v", "<C-a>", dial.inc_visual())
-map("v", "g<C-a>", dial.inc_gvisual())
+map("n", "<C-a>", dial.inc_normal(),   nil, "Add [count] to the value at the cursor")
+map("v", "<C-a>", dial.inc_visual(),   nil, "Add [count] to the value at the cursor")
+map("v", "g<C-a>", dial.inc_gvisual(), nil, "Add [count] to the value at the cursor")
 
 -- Decrement
-map("n", "<C-x>", dial.dec_normal())
-map("v", "<C-x>", dial.dec_visual())
-map("v", "g<C-x>", dial.dec_gvisual())
+map("n", "<C-x>", dial.dec_normal(),   nil, "Subtract [count] to the value at the cursor")
+map("v", "<C-x>", dial.dec_visual(),   nil, "Subtract [count] to the value at the cursor")
+map("v", "g<C-x>", dial.dec_gvisual(), nil, "Subtract [count] to the value at the cursor")

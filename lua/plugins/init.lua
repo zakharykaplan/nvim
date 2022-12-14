@@ -191,7 +191,8 @@ return require("packer").startup(function(use)
           -- Toggle trouble
           vim.keymap.set("n", "<Space>d", trouble.toggle, {
             noremap = true,
-            silent = true
+            silent = true,
+            desc = "Toggle diagnostics",
           })
         end,
         requires = "kyazdani42/nvim-web-devicons",

@@ -5,8 +5,8 @@
 -- Vim:         set fdl=0 fdm=marker:
 
 -- Set up keymaps
-local function map(mode, lhs, rhs, opts)
-  opts = opts or { noremap = true, silent = true }
+local function map(mode, lhs, rhs, opts, hint)
+  opts = opts or { noremap = true, silent = true, desc = hint }
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
@@ -18,7 +18,7 @@ end
 -- Change mapleader
 vim.g.mapleader = ","
 -- Bypass mapleader action
-map("n", "<Leader><Leader>", "<Leader>")
+map("n", "<Leader><Leader>", "<Leader>", nil, "Perform mapleader action")
 
 
 ---------------
@@ -26,4 +26,4 @@ map("n", "<Leader><Leader>", "<Leader>")
 ---------------
 
 -- Write to file
-map("n", "<C-s>", "<Cmd>update<CR>")
+map("n", "<C-s>", "<Cmd>update<CR>", nil, "Save buffer")

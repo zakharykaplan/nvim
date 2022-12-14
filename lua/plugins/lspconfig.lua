@@ -100,37 +100,39 @@ do
     end
 
     -- Set up keymaps
-    local function map(mode, lhs, rhs, opts)
-      opts = opts or { noremap = true, silent = true }
+    local function map(mode, lhs, rhs, opts, hint)
+      opts = opts or { noremap = true, silent = true, desc = hint }
       opts.buffer = bufnr
       vim.keymap.set(mode, lhs, rhs, opts)
     end
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    map("n", "<C-k>", vim.lsp.buf.signature_help)
-    map("n", "<Space>D", vim.lsp.buf.type_definition)
-    map("n", "<Space>ca", vim.lsp.buf.code_action)
-    map("n", "<Space>e", vim.diagnostic.open_float)
-    map("n", "<Space>q", vim.diagnostic.setloclist)
-    map("n", "<Space>rn", vim.lsp.buf.rename)
-    map("n", "<Space>so", function() require("telescope.builtin").lsp_document_symbols() end)
+    map("n", "<C-k>", vim.lsp.buf.signature_help,       nil, "Show signature help")
+    map("n", "<Space>D", vim.lsp.buf.type_definition,   nil, "Jump to type definition")
+    map("n", "<Space>ca", vim.lsp.buf.code_action,      nil, "Perform code action")
+    map("n", "<Space>rn", vim.lsp.buf.rename,           nil, "Rename symbol")
+    map("v", "<Space>ca", vim.lsp.buf.code_action,      nil, "Perform code action")
+    map("n", "<Space>e", vim.diagnostic.open_float,     nil, "Show diagnostics")
+    map("n", "<Space>q", vim.diagnostic.setloclist,     nil, "Set diagnostics")
+    map("n", "<Space>so", function()
+      require("telescope.builtin").lsp_document_symbols()
+    end,                                                nil, "List symbols in buffer")
     map("n", "<Space>wa", vim.lsp.buf.add_workspace_folder)
     map("n", "<Space>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
     map("n", "<Space>wr", vim.lsp.buf.remove_workspace_folder)
     map("n", "K", vim.lsp.buf.hover)
-    map("n", "[d", vim.diagnostic.goto_prev)
-    map("n", "]d", vim.diagnostic.goto_next)
-    map("n", "gD", vim.lsp.buf.declaration)
-    map("n", "gd", vim.lsp.buf.definition)
-    map("n", "gi", vim.lsp.buf.implementation)
-    map("n", "gr", vim.lsp.buf.references)
+    map("n", "[d", vim.diagnostic.goto_prev,            nil, "Go to previous diagnostic")
+    map("n", "]d", vim.diagnostic.goto_next,            nil, "Go to next diagnostic")
+    map("n", "gD", vim.lsp.buf.declaration,             nil, "Jump to declaration")
+    map("n", "gd", vim.lsp.buf.definition,              nil, "Jump to definition")
+    map("n", "gi", vim.lsp.buf.implementation,          nil, "List implementations")
+    map("n", "gr", vim.lsp.buf.references,              nil, "List references")
 
     -- Set some key bindings conditional on server capabilities
-    if client.server_capabilities.document_formatting then
-      map("n", "<Space>f", vim.lsp.buf.formatting)
-    end
-    if client.server_capabilities.document_range_formatting then
-      map("x", "<Space>f", vim.lsp.buf.range_formatting)
+    if client.server_capabilities.documentFormattingProvider then
+      map("n", "<Space>f", function()
+        vim.lsp.buf.format { async = true }
+      end,                                              nil, "Format buffer")
     end
   end
 end
