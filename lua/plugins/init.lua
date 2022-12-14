@@ -172,6 +172,7 @@ return require("packer").startup(function(use)
 
     -- Language {{{
     do
+      -- Vim configuration for Rust
       use {
         "rust-lang/rust.vim",
         ft = "rust",

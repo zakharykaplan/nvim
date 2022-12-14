@@ -10,7 +10,7 @@ require("snippy").setup {
         ["<S-Tab>"] = "previous",
     },
     nx = {
-        ["<leader>x"] = "cut_text",
+        ["<Leader>x"] = "cut_text",
     },
   },
 }

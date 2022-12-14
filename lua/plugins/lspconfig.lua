@@ -161,8 +161,8 @@ lspconfig.util.default_config = vim.tbl_extend(
   lspconfig.util.default_config,
   {
     capabilities = capabilities,
-    handlers = handlers,
-    on_attach = on_attach,
+    handlers     = handlers,
+    on_attach    = on_attach,
   }
 )
 
@@ -214,4 +214,3 @@ mason.setup_handlers {
     }
   end,
 }
-
