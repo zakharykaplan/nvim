@@ -107,11 +107,6 @@ do
     end
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    map("n", "<C-k>", vim.lsp.buf.signature_help,       nil, "Show signature help")
-    map("n", "<Space>D", vim.lsp.buf.type_definition,   nil, "Jump to type definition")
-    map("n", "<Space>ca", vim.lsp.buf.code_action,      nil, "Perform code action")
-    map("n", "<Space>rn", vim.lsp.buf.rename,           nil, "Rename symbol")
-    map("v", "<Space>ca", vim.lsp.buf.code_action,      nil, "Perform code action")
     map("n", "<Space>e", vim.diagnostic.open_float,     nil, "Show diagnostics")
     map("n", "<Space>q", vim.diagnostic.setloclist,     nil, "Set diagnostics")
     map("n", "<Space>so", function()
@@ -121,18 +116,39 @@ do
     map("n", "<Space>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
     map("n", "<Space>wr", vim.lsp.buf.remove_workspace_folder)
     map("n", "K", vim.lsp.buf.hover)
-    map("n", "[d", vim.diagnostic.goto_prev,            nil, "Go to previous diagnostic")
     map("n", "]d", vim.diagnostic.goto_next,            nil, "Go to next diagnostic")
-    map("n", "gD", vim.lsp.buf.declaration,             nil, "Jump to declaration")
-    map("n", "gd", vim.lsp.buf.definition,              nil, "Jump to definition")
-    map("n", "gi", vim.lsp.buf.implementation,          nil, "List implementations")
-    map("n", "gr", vim.lsp.buf.references,              nil, "List references")
+    map("n", "[d", vim.diagnostic.goto_prev,            nil, "Go to previous diagnostic")
 
     -- Set some key bindings conditional on server capabilities
+    if client.server_capabilities.codeActionProvider then
+      map("n", "<Space>ca", vim.lsp.buf.code_action,    nil, "Perform code action")
+      map("v", "<Space>ca", vim.lsp.buf.code_action,    nil, "Perform code action")
+    end
+    if client.server_capabilities.declarationProvider then
+      map("n", "gD", vim.lsp.buf.declaration,           nil, "Jump to declaration")
+    end
+    if client.server_capabilities.definitionProvider then
+      map("n", "gd", vim.lsp.buf.definition,            nil, "Jump to definition")
+    end
     if client.server_capabilities.documentFormattingProvider then
       map("n", "<Space>f", function()
         vim.lsp.buf.format { async = true }
       end,                                              nil, "Format buffer")
+    end
+    if client.server_capabilities.implementationProvider then
+      map("n", "gi", vim.lsp.buf.implementation,        nil, "List implementations")
+    end
+    if client.server_capabilities.referencesProvider then
+      map("n", "gr", vim.lsp.buf.references,            nil, "List references")
+    end
+    if client.server_capabilities.renameProvider then
+      map("n", "<Space>rn", vim.lsp.buf.rename,         nil, "Rename symbol")
+    end
+    if client.server_capabilities.signatureHelpProvider then
+      map("n", "<C-k>", vim.lsp.buf.signature_help,     nil, "Show signature help")
+    end
+    if client.server_capabilities.typeDefinitionProvider then
+      map("n", "<Space>D", vim.lsp.buf.type_definition, nil, "Jump to type definition")
     end
   end
 end
