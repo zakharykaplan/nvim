@@ -19,12 +19,12 @@ config.augends:register_group {
     augend.date.alias["%H:%M:%S"],
     augend.date.alias["%Y-%m-%d"],
     augend.date.alias["%Y/%m/%d"],
-    augend.date.alias["%d.%m.%Y"],
-    augend.date.alias["%d.%m.%Y"],
-    augend.date.alias["%d.%m.%y"],
     augend.date.alias["%d/%m/%Y"],
-    augend.date.alias["%d/%m/%y"],
-    augend.date.alias["%m/%d"],
+    augend.date.new {
+        pattern = "%d %b %Y",
+        default_kind = "day",
+        only_valid = true,
+    },
     -- Constant
     augend.constant.alias.Alpha,
     augend.constant.alias.alpha,
