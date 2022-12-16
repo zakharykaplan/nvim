@@ -7,7 +7,18 @@ local lspconfig = require("lspconfig")
 local mason     = require("mason-lspconfig")
 
 -- Prepare capabilities, handlers, and on_attach
-local capabilities, handlers, on_attach
+local capabilities
+do
+  -- Add additional capabilities supported by nvim-cmp
+  capabilities = vim.lsp.protocol.make_client_capabilities()
+  vim.tbl_deep_extend(
+    "force",
+    capabilities,
+    require("cmp_nvim_lsp").default_capabilities()
+  )
+end
+
+local handlers
 do
   -- Style of (optional) window border. This can either be a string or
   -- an array.
@@ -72,15 +83,10 @@ do
   vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
     callback = function() vim.diagnostic.show() end,
   })
+end
 
-  -- Add additional capabilities supported by nvim-cmp
-  capabilities = vim.lsp.protocol.make_client_capabilities()
-  vim.tbl_deep_extend(
-    "force",
-    capabilities,
-    require("cmp_nvim_lsp").default_capabilities()
-  )
-
+local on_attach
+do
   -- Use an `on_attach` function to only map the following keys...
   -- ... after the language server attaches to the current buffer
   on_attach = function(client, bufnr)
