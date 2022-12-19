@@ -35,13 +35,18 @@ end
 return require("packer").startup(function(use)
   -- Colorscheme {{{
   do
-    use {
-      "EdenEast/nightfox.nvim",
-      config = function()
-        vim.cmd.colorscheme("nordfox")
-      end,
-    }
+    use "EdenEast/nightfox.nvim"
     use "rebelot/kanagawa.nvim"
+    use {
+      'rose-pine/neovim',
+      as = 'rose-pine',
+      config = function()
+        require("rose-pine").setup {
+          dark_variant = "moon",
+        }
+        vim.cmd.colorscheme("rose-pine")
+      end
+    }
     use "sainnhe/everforest"
     use "xero/sourcerer.vim"
   end
