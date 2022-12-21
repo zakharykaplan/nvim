@@ -1,9 +1,26 @@
--- File:        nvim-treesitter.lua
+-- File:        treesitter.lua
 -- Author:      Zakhary Kaplan <https://zakhary.dev>
 -- Created:     06 Aug 2021
 -- SPDX-License-Identifier: MIT
 
-require("nvim-treesitter.configs").setup {
+local treesitter = require("nvim-treesitter.configs")
+
+-- Use treesitter for folds
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr   = "nvim_treesitter#foldexpr()"
+
+treesitter.setup {
+  -- A list of parser names, or "all"
+  ensure_installed = {
+    "bash",
+    "c",
+    "cpp",
+    "help",
+    "lua",
+    "python",
+    "rust",
+    "vim",
+  },
   -- Consistent syntax highlighting.
   highlight = {
     enable = true,
@@ -81,6 +98,3 @@ require("nvim-treesitter.configs").setup {
     },
   },
 }
-
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr   = "nvim_treesitter#foldexpr()"

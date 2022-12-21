@@ -1,9 +1,12 @@
--- File:        mason.lua
+-- File:        packages.lua
 -- Author:      Zakhary Kaplan <https://zakhary.dev>
 -- Created:     25 Jul 2022
 -- SPDX-License-Identifier: MIT
 
-require("mason").setup {
+local lspconfig = require("mason-lspconfig")
+local mason     = require("mason")
+
+mason.setup {
   ui = {
     -- The border to use for the UI window. Accepts same border values as
     -- |nvim_open_win()|.
@@ -21,7 +24,7 @@ require("mason").setup {
   },
 }
 
-require("mason-lspconfig").setup {
+lspconfig.setup {
   -- A list of servers to automatically install if they're not already
   -- installed.
   -- Example: { "rust_analyzer@nightly", "sumneko_lua" }
@@ -37,7 +40,7 @@ require("mason-lspconfig").setup {
   --   - { exclude: string[] }: All servers set up via lspconfig, except the
   --       ones provided in the list, are automatically installed.
   --       Example: automatic_installation = {
-    --       exclude = { "rust_analyzer", "solargraph" },
+  --         exclude = { "rust_analyzer", "solargraph" },
   --       }.
   automatic_installation = true,
 }

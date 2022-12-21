@@ -3,14 +3,11 @@
 -- Created:     08 Aug 2021
 -- SPDX-License-Identifier: MIT
 
-local cmp = require("cmp")
+local cmp     = require("cmp")
+local snippy  = require("snippy")
 local lspkind = require("lspkind")
 
--- Nil check for LSP
-if not cmp then
-  return
-end
-
+-- Auto completion
 cmp.setup {
   -- Don't pre-select any item
   preselect = cmp.PreselectMode.None,
@@ -67,7 +64,7 @@ cmp.setup {
   -- Snippet expansion function
   snippet = {
     expand = function(args)
-      require("snippy").expand_snippet(args.body)
+      snippy.expand_snippet(args.body)
     end,
   },
 
@@ -147,4 +144,17 @@ cmp.setup {
   experimental = {
     ghost_text = true,
   }
+}
+
+-- Snippet engine
+snippy.setup {
+  mappings = {
+    is = {
+        ["<Tab>"] = "expand_or_advance",
+        ["<S-Tab>"] = "previous",
+    },
+    nx = {
+        ["<Leader>x"] = "cut_text",
+    },
+  },
 }

@@ -4,26 +4,13 @@
 -- SPDX-License-Identifier: MIT
 -- Vim:         set fdl=0 fdm=marker:
 
--- Set up autocmds
-local function augroup(name, setup)
-  local group = vim.api.nvim_create_augroup(name, {})
-  setup(function(event, pattern, callback)
-    vim.api.nvim_create_autocmd(event, {
-      group = group,
-      pattern = pattern,
-      callback = callback,
-    })
-  end)
-end
-
-
 ---------------
 -- Autocmds  --
 ---------------
 
 -- Hexmode {{{
 -- `vim -b`: edit binary using xxd-format!
-augroup("Hexmode", function(autocmd)
+vimrc.augroup("Hexmode", function(autocmd)
   autocmd("BufReadPost", nil, function()
     vim.cmd [[if &binary | %!xxd | set ft=xxd | endif]]
   end)
@@ -37,7 +24,7 @@ end)
 -- }}}
 
 -- Vimrc {{{
-augroup("Vimrc", function(autocmd)
+vimrc.augroup("Vimrc", function(autocmd)
   -- Override formatoptions upon entering a new buffer
   autocmd({ "BufNewFile", "BufWinEnter" }, nil, function()
     vim.opt_local.formatoptions:remove("o")

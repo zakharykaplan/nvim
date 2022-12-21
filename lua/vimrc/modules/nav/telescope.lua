@@ -3,8 +3,13 @@
 -- Created:     06 Aug 2021
 -- SPDX-License-Identifier: MIT
 
+local telescope = require("telescope")
+local builtin   = require("telescope.builtin")
+
+telescope.load_extension("fzf")
+
 -- Require module setup
-require("telescope").setup {
+telescope.setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -62,21 +67,15 @@ require("telescope").setup {
 -- Configure mappings
 do
   -- Set up keymaps
-  local function map(mode, lhs, rhs, opts, hint)
-    opts = opts or { noremap = true, silent = true, desc = hint }
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-
   -- Builtins
-  local ts = require("telescope.builtin")
-  map("n", "<F1>", ts.help_tags,   nil, "List help tags")
-  map("n", "<M-b>", ts.buffers,    nil, "List buffers")
-  map("n", "<M-f>", ts.find_files, nil, "List files")
-  map("n", "<M-F>", function()
-    ts.find_files { hidden = true }
+  vimrc.map("n", "<F1>", builtin.help_tags,   nil, "List help tags")
+  vimrc.map("n", "<M-b>", builtin.buffers,    nil, "List buffers")
+  vimrc.map("n", "<M-f>", builtin.find_files, nil, "List files")
+  vimrc.map("n", "<M-F>", function()
+    builtin.find_files { hidden = true }
   end,                             nil, "List hidden files")
-  map("n", "<M-o>", ts.oldfiles,   nil, "List oldfiles")
-  map("n", "<M-g>", ts.live_grep,  nil, "Live grep")
-  map("n", "<M-s>", ts.builtin,    nil, "Launch telescope")
-  map("n", "<M-S>", ts.resume,     nil, "Resume telescope")
+  vimrc.map("n", "<M-o>", builtin.oldfiles,   nil, "List oldfiles")
+  vimrc.map("n", "<M-g>", builtin.live_grep,  nil, "Live grep")
+  vimrc.map("n", "<M-s>", builtin.builtin,    nil, "Launch telescope")
+  vimrc.map("n", "<M-S>", builtin.resume,     nil, "Resume telescope")
 end

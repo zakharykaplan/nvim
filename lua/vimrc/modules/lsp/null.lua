@@ -1,4 +1,4 @@
--- File:        null-ls.lua
+-- File:        null.lua
 -- Author:      Zakhary Kaplan <https://zakhary.dev>
 -- Created:     18 Aug 2022
 -- SPDX-License-Identifier: MIT

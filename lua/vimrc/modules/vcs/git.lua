@@ -1,9 +1,11 @@
--- File:        gitsigns.lua
+-- File:        git.lua
 -- Author:      Zakhary Kaplan <https://zakhary.dev>
 -- Created:     19 Oct 2021
 -- SPDX-License-Identifier: MIT
 
-require("gitsigns").setup {
+local gitsigns = require("gitsigns")
+
+gitsigns.setup {
   -- Set symbols in the sign column.
   signcolumn = true,
   -- Set line number highlights.

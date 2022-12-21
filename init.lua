@@ -5,10 +5,7 @@
 -- Vim:         set fdl=0 fdm=marker:
 
 -- load vimrc
-require("vimrc")
+require("vimrc").setup()
 
--- load plugins
-require("plugins")
-
--- load custom
-pcall(require, "local")
+-- use pretty print
+pprint = vim.pretty_print
