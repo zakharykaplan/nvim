@@ -63,7 +63,6 @@ lazy.setup({
         -- Vim-builtin
         "f3fora/cmp-spell",
         "hrsh7th/cmp-calc",
-        "hrsh7th/cmp-omni",
         -- Neovim-builtin
         "hrsh7th/cmp-nvim-lua",
         -- Snippets

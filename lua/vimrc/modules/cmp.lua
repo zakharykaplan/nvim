@@ -80,7 +80,6 @@ cmp.setup {
         -- Vim-builtin
         spell       = "暈",
         calc        = " ",
-        omni        = " ",
         -- Neovim-builtin
         nvim_lua    = " ",
         -- Snippets
@@ -119,7 +118,6 @@ cmp.setup {
     {
       { name = "spell" },
       { name = "calc" },
-      { name = "omni" },
     },
     -- Filesystem
     {
