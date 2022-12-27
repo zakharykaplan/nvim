@@ -12,9 +12,6 @@ local comment   = require("mini.comment")
 local retrail   = require("retrail")
 local surround  = require("mini.surround")
 
--- Modal multiple cursors
-vim.g.VM_leader = "\\"
-
 -- Fast and familiar per-line commenting
 comment.setup {}
 
