@@ -10,7 +10,7 @@ local autopairs = require("nvim-autopairs")
 local cmp       = require("cmp")
 local comment   = require("Comment")
 local retrail   = require("retrail")
-local surround  = require("nvim-surround")
+local surround  = require("mini.surround")
 
 -- Modal multiple cursors
 vim.g.VM_leader = "\\"
@@ -29,5 +29,5 @@ cmp.event:on(
 -- Whitespace management
 retrail.setup {}
 
--- Edit sandwiched textobjects
+-- Fast and feature-rich surround actions
 surround.setup {}

@@ -22,8 +22,8 @@ lazy.setup({
 
   -- Editing
   {
-    -- Edit sandwiched textobjects
-    "kylechui/nvim-surround",
+    -- Fast and feature-rich surround actions
+    "echasnovski/mini.surround",
     -- Modal multiple cursors
     "mg979/vim-visual-multi",
     -- Enhanced increment/decrement
