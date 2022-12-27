@@ -39,6 +39,8 @@ cmp.setup {
     ["<Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif snippy.can_expand_or_advance() then
+        snippy.expand_or_advance()
       else
         fallback()
       end
@@ -46,6 +48,8 @@ cmp.setup {
     ["<S-Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif snippy.can_jump(-1) then
+        snippy.previous()
       else
         fallback()
       end
