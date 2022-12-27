@@ -24,18 +24,18 @@ cmp.setup {
       c = cmp.mapping.close(),
     }),
     -- Select behaviour
-    ["<C-n>"] = cmp.mapping.select_next_item({
+    ["<C-n>"] = cmp.mapping.select_next_item {
       behavior = cmp.SelectBehavior.Select
-    }),
-    ["<C-p>"] = cmp.mapping.select_prev_item({
+    },
+    ["<C-p>"] = cmp.mapping.select_prev_item {
       behavior = cmp.SelectBehavior.Select
-    }),
-    ["<Down>"] = cmp.mapping.select_next_item({
+    },
+    ["<Down>"] = cmp.mapping.select_next_item {
       behavior = cmp.SelectBehavior.Insert
-    }),
-    ["<Up>"] = cmp.mapping.select_prev_item({
+    },
+    ["<Up>"] = cmp.mapping.select_prev_item {
       behavior = cmp.SelectBehavior.Insert
-    }),
+    },
     ["<Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -55,14 +55,14 @@ cmp.setup {
       end
     end,
     -- Confirm behaviour
-    ["<C-y>"] = cmp.mapping.confirm({
+    ["<C-y>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
-    }),
-    ["<CR>"] = cmp.mapping.confirm({
+    },
+    ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    }),
+    },
   },
 
   -- Snippet expansion function
