@@ -22,14 +22,14 @@ lazy.setup({
 
   -- Editing
   {
+    -- Fast and familiar per-line commenting
+    "echasnovski/mini.comment",
     -- Fast and feature-rich surround actions
     "echasnovski/mini.surround",
     -- Modal multiple cursors
     "mg979/vim-visual-multi",
     -- Enhanced increment/decrement
     "monaqa/dial.nvim",
-    -- Smart and powerful comments
-    "numToStr/Comment.nvim",
     -- Super powerful autopairs
     "windwp/nvim-autopairs",
     -- Whitespace management

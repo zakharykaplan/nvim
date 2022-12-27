@@ -8,14 +8,14 @@ require("vimrc.modules.edit.dial")
 local autocmp   = require("nvim-autopairs.completion.cmp")
 local autopairs = require("nvim-autopairs")
 local cmp       = require("cmp")
-local comment   = require("Comment")
+local comment   = require("mini.comment")
 local retrail   = require("retrail")
 local surround  = require("mini.surround")
 
 -- Modal multiple cursors
 vim.g.VM_leader = "\\"
 
--- Smart and powerful comments
+-- Fast and familiar per-line commenting
 comment.setup {}
 
 -- Super powerful autopairs
