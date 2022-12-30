@@ -5,23 +5,16 @@
 
 require("vimrc.modules.edit.dial")
 
-local autocmp   = require("nvim-autopairs.completion.cmp")
-local autopairs = require("nvim-autopairs")
-local cmp       = require("cmp")
 local comment   = require("mini.comment")
+local pairs     = require("mini.pairs")
 local retrail   = require("retrail")
 local surround  = require("mini.surround")
 
 -- Fast and familiar per-line commenting
 comment.setup {}
 
--- Super powerful autopairs
-autopairs.setup {}
--- Interoperability with nvim-cmp
-cmp.event:on(
-  "confirm_done",
-  autocmp.on_confirm_done {}
-)
+-- Automatically manage character pairs
+pairs.setup {}
 
 -- Whitespace management
 retrail.setup {}

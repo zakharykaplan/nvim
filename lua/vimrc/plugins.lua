@@ -24,14 +24,14 @@ lazy.setup({
   {
     -- Fast and familiar per-line commenting
     "echasnovski/mini.comment",
+    -- Automatically manage character pairs
+    "echasnovski/mini.pairs",
     -- Fast and feature-rich surround actions
     "echasnovski/mini.surround",
     -- Modal multiple cursors
     "mg979/vim-visual-multi",
     -- Enhanced increment/decrement
     "monaqa/dial.nvim",
-    -- Super powerful autopairs
-    "windwp/nvim-autopairs",
     -- Whitespace management
     "zakharykaplan/nvim-retrail",
   },
