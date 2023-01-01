@@ -33,7 +33,7 @@ lazy.setup({
     -- Enhanced increment/decrement
     "monaqa/dial.nvim",
     -- Whitespace management
-    "zakharykaplan/nvim-retrail",
+    "kaplanz/nvim-retrail",
   },
 
   -- Extensions
