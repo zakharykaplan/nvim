@@ -12,13 +12,22 @@
 -- `vim -b`: edit binary using xxd-format!
 vimrc.augroup("Hexmode", function(autocmd)
   autocmd("BufReadPost", nil, function()
-    vim.cmd [[if &binary | %!xxd | set ft=xxd | endif]]
+    if vim.bo.binary then
+      vim.cmd [[%!xxd]]
+      vim.filetype = "xxd"
+    end
   end)
   autocmd("BufWritePre", nil, function()
-    vim.cmd [[if &binary | %!xxd -r | set ft=xxd | endif]]
+    if vim.bo.binary then
+      vim.cmd [[%!xxd -r]]
+      vim.filetype = "xxd"
+    end
   end)
-  autocmd("BufWritePre", nil, function()
-    vim.cmd [[if &binary | %!xxd | set nomod | endif]]
+  autocmd("BufWritePost", nil, function()
+    if vim.bo.binary then
+      vim.cmd [[%!xxd]]
+      vim.bo.modified = false
+    end
   end)
 end)
 -- }}}
@@ -35,14 +44,14 @@ vimrc.augroup("Vimrc", function(autocmd)
   -- when dropping a file on gvim) and for a commit message (it's likely a
   -- different one than last time).
   autocmd("BufReadPost", nil, function()
-    vim.cmd [[
-      if line("'\"") >= 1
-      \ && line("'\"") <= line("$")
-      \ && &ft !~# "commit"
-      \ && &ft !~# "gitrebase"
-      \ |   exe "normal! g`\""
-      \ | endif
-    ]]
+    local pos = vim.fn.line("'\"")
+    local eol = vim.fn.line("$")
+    if pos >= 1 and pos <= eol
+      and not vim.bo.filetype:match("commit")
+      and not vim.bo.filetype:match("gitrebase")
+    then
+      vim.cmd.normal { "g`\"", bang = true }
+    end
   end)
 
   -- Replace tabs with spaces on write
